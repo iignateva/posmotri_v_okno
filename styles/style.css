@@ -44,6 +44,7 @@ h2 {
   font-weight: inherit;
   font-size: inherit;
   line-height: inherit;
+  text-overflow: inherit;
   color: inherit;
 }
 
@@ -63,22 +64,21 @@ ol {
 }
 
 .content {
-  width: 100%;
-  height: 535px;
+  width: 1140px;
   display: flex;
   gap: 30px;
   align-items: end;
 }
 
 .result {
-  width: 100%;
+  width: fit-content;
 }
 
 .result__video-container {
   position: relative;
   padding-bottom: 16px;
-  min-width: 770px;
-  height: 420px;
+  width: 711px;
+  height: 386px; 
   overflow: hidden;
 }
 
@@ -99,8 +99,8 @@ ol {
 }
 
 .content__details {
-  height: 100%;
-  min-width: 400px;
+  height: 534px;
+  width: fit-content;
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -129,11 +129,11 @@ ol {
 
 .search-form__fieldset {
   width: 100%;
-  font-family: 'Fira Sans Condensed';
+  font-family: 'Fira Sans Condensed', sans-serif;
   font-weight: 400;
   font-size: 18px;
   line-height: 22px;
-  /* identical to box height */
+  text-overflow: ellipsis;
   color: #fff;
 }
 
@@ -145,8 +145,8 @@ ol {
   border-top: 1px solid #fff;
   border-left: none;
   border-right: none;
-  color: rgba(255, 255, 255, 0.7);
-  font-family: 'Fira Sans Condensed';
+  color: rgba(255 255 255 / 0.7);
+  font-family: 'Fira Sans Condensed', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
@@ -166,7 +166,7 @@ ol {
   min-height: fit-content;
   background-color: transparent;
   border: 1px solid #fff;
-  font-family: 'Fira Sans Condensed';
+  font-family: 'Fira Sans Condensed', sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 18px;
@@ -214,7 +214,7 @@ ol {
 .content__list-item:focus-visible,
 .content__card-link:focus-visible,
 .content__video-card:focus-visible {
-  outline: none;
+  outline: transparent;
 }
 
 .content__card-link {
@@ -224,26 +224,25 @@ ol {
 }
 
 .content__video-card-thumbnail {
-  width: 100%;
-  height: 100%;
+  width: 194px;
+  height: 103px;
   object-fit: cover;
   object-position: center;
+  overflow: hidden;
 }
 
 .content__video-card {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  min-height: 100px;
   justify-content: space-between;
 }
 
 :is(.content__list-item:has(:focus-visible)) .content__video-card {
-  outline: none;
-  border: 1px solid #fff;
+  outline: 1px solid #fff;
 }
 
 .content__video-card-title {
-  font-family: Oswald;
+  font-family: Oswald, sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 30px;
@@ -255,12 +254,15 @@ ol {
 .content__video-card-description-container {
   display: flex;
   flex-direction: column;
+  text-overflow: ellipsis;
   gap: 6px;
-  padding-top: 3px;
+  padding-top: 3px;  
+  inline-size: 200px;
+  block-size: 101px;
 }
 
 .content__video-card-description {
-  font-family: 'Fira Sans Condensed';
+  font-family: 'Fira Sans Condensed', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
@@ -289,7 +291,8 @@ ol {
 }
 
 .search-form__label:focus-visible,
-input:focus-visible {
+.search-form__textfield:focus-visible,
+.search-form__checkbox:focus-visible {
   outline: none;
 }
 
@@ -308,7 +311,7 @@ input:focus-visible {
 }
 
 .search-form__label:has(:focus-visible):not(:active) {
-  border: 1px solid #fff;
+  outline: 1px solid #fff;
 }
 
 :is(.search-form__label:hover) .search-form__label-text {
